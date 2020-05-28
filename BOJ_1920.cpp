@@ -8,7 +8,6 @@ using namespace std;
 
 int arr[100000] = { 0, };
 
-
 int binarySearch(int low, int high, int num)
 {
 	if (low > high)
