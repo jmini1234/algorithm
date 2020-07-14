@@ -90,3 +90,5 @@ def bfs(graph, start, visited):
         visited[i] = True
 ```
 - 사용 문제 : 미로탐색 
+
+### 가장 작은 범위부터 구현하자 
