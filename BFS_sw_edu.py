@@ -20,20 +20,21 @@ def bfs(start_x,start_y):
 		# 처음 위치 방문, 시작 위치의 이동 칸 수는 0
 		graph[start_x][start_y] = 0
 		# 큐에 좌표를 넣는다.
-		q = deque[(start_x, start_y)]
+		q = deque([(start_x, start_y)])
 		# queue가 모두 없어질때까지 
 		while q:
 				# 하나 꺼내서 모든 인접한 node를 탐색해서 저장한다. (나이트가 갈 수 있는 위치)
-				x, y= queue.popleft()
+				x, y = q.popleft()
 				for i in range(8):
 					nx = x+dx[i]
 					ny = y+dy[i]
-					if 0<=nx and nx<l and 0<=ny and ny<l
+					if 0<=nx and nx<l and 0<=ny and ny<l:
+						if graph[nx][ny] != -1:
 							continue
-					# 방문한 횟수를 graph 배열에 저장하고
-					graph[nx][ny] = graph[x][y]+1
-					# q에 넣는다.
-					q.append[(nx,ny)]
+						# 방문한 횟수를 graph 배열에 저장하고
+						graph[nx][ny] = graph[x][y]+1
+						# q에 넣는다.
+						q.append((nx,ny))
 
 bfs(start_x,start_y)
-print(graph[target_x][taret_y])
+print(graph[target_x][target_y])
