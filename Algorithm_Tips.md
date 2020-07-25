@@ -124,3 +124,29 @@ cache 초기화 -> 점화식 진행 중 나올 수 없는 값
   - 대칭하지 않는 타일의 경우의 수 구하기 (전체 경우의 수 - 대칭하는 타일의 경우의 수)
 - 구하는 결과 바꾸어서 생각하기
   - 두 날짜의 차이를 구할 때 차이를 세지말고 (전체 ~ 끝 날짜의 날짜 수) + (전체 ~ 시작 날짜의 날짜 수) 로 구한다. 
+  
+### c++ sort 방법 
+```c++
+// O(nlogn)의 시간복잡도를 보장함
+sort(arr,arr+n)
+sort(&arr[0],&arr[n])
+// 오름차순 변경 후 -> 내림차순
+sort(vec.begin(),vec.end())
+reverse(vec.begin(),vec.end()); // 내림차순
+
+bool comp(const int &a, const int &b){
+  retrun a>b; // 이 순서가 맞으면 true이니까 내림차순이다.
+}
+
+sort(arr,arr+n,comp) 
+```
+- stable한 정렬을 해야할 때 (모두 같다면 입력된 순으로)
+  - struct에 idx추가해서 comp 함수에 조건 추가
+  - stable_sort() 함수 사용해서 정렬
+- 숫자, 문자 섞여있을때는 숫자 -> 문자 순으로 정렬됨
+
+#### 다앙한 정렬 방법
+- Bubble sort : **O(n^2)**, 앞에서부터 뒤로 하나씩 비교하면서 가장 큰 값을 고정시킨다. 
+- Insert sort : **O(n^2)**, 앞에서부터 해당 idx 앞의 값 중 어느 곳에 들어가야하는지 고른다.
+- Merge sort : 항상 **O(nlogn)** 쪼개는건 재귀 / 분할 정복 
+- Heap sort : **O(n)** max heap -> tree의 root가 아래 자식보다 커야 한다. max_heap을 통해 최대값을 구하고 최대값을 맨 뒤로 보내면서 정렬
