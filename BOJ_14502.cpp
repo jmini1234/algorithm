@@ -56,7 +56,7 @@ void bfs() {
 
 
 void dfs(int x,int y, int cnt) {
-	cout << x << ' ' << y << ' ' << cnt << endl;
+	//cout << x << ' ' << y << ' ' << cnt << endl;
 	if (cnt == 3) {
 		// 벽 세워보기 위해서 tmp에 arr 값 복사
 		for (int i = x; i < n; i++) {
