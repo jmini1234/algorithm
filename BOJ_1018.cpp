@@ -67,3 +67,41 @@ int main() {
 	printf("%d", res);
 
 }
+
+///////////////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+int n, m;
+vector<string> v(50);
+int res = 1000000;
+// 비교할 체스
+vector<string> chess = { "WBWBWBWB","BWBWBWBW","WBWBWBWB","BWBWBWBW",
+						"WBWBWBWB","BWBWBWBW", "WBWBWBWB","BWBWBWBW",
+};
+
+int main() {
+	ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+	cin >> n >> m;
+
+	for (int i = 0; i < n; i++)
+		cin >> v[i];
+
+	for (int i = 0; i <= n - 8; i++) {
+		for (int j = 0; j <= m - 8; j++) {
+			int cnt = 0;
+			for (int dx = 0; dx < 8; dx++) {
+				for (int dy = 0; dy < 8; dy++) {
+					if (chess[dx][dy] != v[i + dx][j + dy])
+						cnt++;
+				}
+			}
+			int tmpmin = min(cnt, 64 - cnt);
+			res = min(res, tmpmin);
+		}
+	}
+	cout << res;
+}
